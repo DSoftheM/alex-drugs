@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Gajraj+One&display=swap');
+
+:root {
+    --shadow_title: #da0ff2;
+    --shadow_text: #48ff5c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Gajraj One;
+}
+
+body {
+    padding: 50px;
+}
+
+.cards {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+    color: white;
+    display: flex;
+    text-align: center;
+    min-height: 400px;
+    position: relative;
+    transition: all 0.7s ease 0s;
+    overflow: hidden;
+}
+
+.card__bg {
+    transition: all 0.7s ease 0s;
+    isolation: isolate;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.card__content {
+    position: absolute;
+    top: 75%;
+    transition: all 0.7s ease 0s;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card__image {
+    transition: all 0.7s ease 0s;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: calc(100% + 40px);
+    z-index: -1;
+}
+
+.card__image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.card:nth-child(5) img {
+        object-fit: unset;
+}
+
+.card__title {
+    font-size: 48px;
+    text-shadow: 4px 4px 0px var(--shadow_title), -4px -4px 0px var(--shadow_title);
+}
+
+.card__body {
+    transition: all 0.7s ease 0s;
+    opacity: 0;
+    display: flex;
+    text-shadow: 4px 4px 0px var(--shadow_text), -4px -4px 0px var(--shadow_text);
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card__text {
+    font-size: 24px;
+}
+
+.card__link {
+    align-self: flex-end;
+}
+
+
+
+.card__button {
+    --border-size: 3px;
+    --border-angle: 0turn;
+    color: wheat;
+    font-weight: 700;
+    padding: 12px 48px;
+    border: 0;
+    cursor: pointer;
+    background-image: conic-gradient(from var(--border-angle), #213, #112 50%, #213), conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
+    background-size: calc(100% - (var(--border-size) * 2)) calc(100% - (var(--border-size) * 2)), cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    animation: bg-spin 3s linear infinite;
+}
+
+.card__button span {
+    display: inline-block;
+    animation: textScale 2s ease 0s infinite;
+}
+
+#alex {
+    display: inline-block;
+    background: linear-gradient(160deg, #00ff11, #3c00ff, #00ff77, #d8ff84, #ff0000);
+    background-size: 1000% 1000%;
+
+    -webkit-animation: AnimationName 1s ease infinite;
+    -moz-animation: AnimationName 1s ease infinite;
+    animation: AnimationName 1s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 0% 2%
+    }
+
+    50% {
+        background-position: 100% 99%
+    }
+
+    100% {
+        background-position: 0% 2%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 2%
+    }
+
+    50% {
+        background-position: 100% 99%
+    }
+
+    100% {
+        background-position: 0% 2%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 2%
+    }
+
+    50% {
+        background-position: 100% 99%
+    }
+
+    100% {
+        background-position: 0% 2%
+    }
+}
+
+@keyframes textScale {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1) rotate(360deg);
+    }
+    100% {
+        transform: scale(2) rotate(360deg);
+    }
+}
+
+@keyframes bg-spin {
+    to {
+        --border-angle: 1turn;
+    }
+}
+
+@property --border-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
+}
+
+.card:hover .card__body {
+    opacity: 1;
+}
+
+.card:hover .card__image {
+    top: -40px;
+}
+
+.card:hover .card__content {
+    top: 0;
+    transform: translateY(0%);
+}
+
+.card:hover .card__bg {
+    background-color: rgba(0, 0, 0, 0);
+}
